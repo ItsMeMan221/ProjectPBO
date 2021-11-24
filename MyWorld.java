@@ -30,5 +30,8 @@ public class MyWorld extends World
         addObject(bee,160,152);
         bee.setLocation(75,156);
         bee.setLocation(74,170);
+        butterfly butterfly = new butterfly();
+        addObject(butterfly,264,149);
+        butterfly.setLocation(214,96);
     }
 }
