@@ -66,5 +66,7 @@ public class MyWorld extends World
     }
     public void newWave() {
         counter = 60*(timerSpawn + limitSpawn*spawnRate);
+        timerSpawn--; 
+        limitSpawn+= 10; 
     }
 }
