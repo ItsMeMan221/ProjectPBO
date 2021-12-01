@@ -13,11 +13,17 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    int timerSpawn = 15; 
+    int limitSpawn = 10;
+    int spawnRate = 2; 
+    int counter = 60*(timerSpawn + limitSpawn*spawnRate);
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         prepare();
+            
+        
     }
     
     /**
@@ -26,12 +32,39 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        bee bee = new bee();
-        addObject(bee,160,152);
-        bee.setLocation(75,156);
-        bee.setLocation(74,170);
-        butterfly butterfly = new butterfly();
-        addObject(butterfly,264,149);
-        butterfly.setLocation(214,96);
+
+        enemyImitate enemyImitate = new enemyImitate();
+        addObject(enemyImitate,549,311);
+        towerImitate towerImitate = new towerImitate();
+        addObject(towerImitate,38,313);
+        enemyImitate.setLocation(548,312);
+        removeObject(enemyImitate);
+    }
+
+    public void act() { 
+        if (counter != 60*timerSpawn) {
+            if (counter--==0) {
+                newWave();
+            }
+            else if (counter >= 60*timerSpawn && (counter-60*timerSpawn)%(60*spawnRate) == 0) {
+                spawningEnemy();
+            }
+        }
+        else if (getObjects(enemyImitate.class).isEmpty()) {
+            counter--;
+        }
+            
+        
+        
+        
+    }
+    
+    public void spawningEnemy () {
+        enemyImitate enemy = new enemyImitate();
+        addObject(enemy,600,311);
+        
+    }
+    public void newWave() {
+        counter = 60*(timerSpawn + limitSpawn*spawnRate);
     }
 }
