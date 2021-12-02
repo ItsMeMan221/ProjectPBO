@@ -14,15 +14,15 @@ public class MyWorld extends World
      * 
      */
     int timerSpawn = 15; 
-    int limitSpawn = 10;
-    int spawnRate = 2; 
+    int limitSpawn;
+    int spawnRate = 2;
     int counter = 60*(timerSpawn + limitSpawn*spawnRate);
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         prepare();
-            
+        limitSpawn =5;   
         
     }
     
@@ -45,17 +45,16 @@ public class MyWorld extends World
         if (counter != 60*timerSpawn) {
             if (counter--==0) {
                 newWave();
+                limitSpawn += 10;
             }
             else if (counter >= 60*timerSpawn && (counter-60*timerSpawn)%(60*spawnRate) == 0) {
                 spawningEnemy();
+                
             }
         }
         else if (getObjects(enemyImitate.class).isEmpty()) {
             counter--;
         }
-            
-        
-        
         
     }
     
@@ -66,7 +65,5 @@ public class MyWorld extends World
     }
     public void newWave() {
         counter = 60*(timerSpawn + limitSpawn*spawnRate);
-        timerSpawn--; 
-        limitSpawn+= 10; 
     }
 }

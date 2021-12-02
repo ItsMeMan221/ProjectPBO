@@ -12,17 +12,24 @@ public class enemyImitate extends Actor
      * Act - do whatever the enemyImitate wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int health = 30;
+    int damage = 0; 
     public void act()
     {
-        setLocation(getX()-1,getY()); 
-        eraseEnm();  
-    }
-    
-    public void eraseEnm() {
-        if (getX() <= 2) {
+        setLocation(getX()-1,getY());   
+        destroy();
+    } 
+    public void destroy() {
+        if (isTouching(towerBullet.class)) {
+            removeTouching(towerBullet.class);
+            damage += 1;
+            if (damage >= 2) {
+                getWorld().removeObject(this);
+                damage = 0; 
+                
+            }
+        }
+        else if (this.getX() <= 2) {
             getWorld().removeObject(this);
         }
-        
     }
 }

@@ -12,7 +12,6 @@ public class towerBullet extends Actor
      * Act - do whatever the towerBullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public int damage = 10; 
     public void act()
     {
        setLocation(getX() + 2,getY()); 
@@ -23,13 +22,5 @@ public class towerBullet extends Actor
         if (isAtEdge()) {
             getWorld().removeObject(this);
         }
-        else if (isTouching(enemyImitate.class)){
-            removeTouching(enemyImitate.class);
-            getWorld().removeObject(this);
-        }
-    }
-    
-    public void checkEnemy() {
-        
     }
 }
