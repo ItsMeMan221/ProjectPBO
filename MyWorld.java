@@ -17,6 +17,8 @@ public class MyWorld extends World
     int limitSpawn;
     int spawnRate = 2;
     int counter = 60*(timerSpawn + limitSpawn*spawnRate);
+    public static Counter lives = new Counter();
+    public static Score score = new Score();
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -39,6 +41,12 @@ public class MyWorld extends World
         addObject(towerImitate,38,313);
         enemyImitate.setLocation(548,312);
         removeObject(enemyImitate);
+        addObject(lives,46,19);
+        lives.setPrefix("Lives : ");
+        lives.setValue(20);
+        addObject(score,549,19);
+        score.setPrefix("Score : ");
+        score.setValue(0);
     }
 
     public void act() { 
@@ -55,7 +63,9 @@ public class MyWorld extends World
         else if (getObjects(enemyImitate.class).isEmpty()) {
             counter--;
         }
-        
+        if (lives.getValue() <= 0) {
+            Greenfoot.stop();
+        }
     }
     
     public void spawningEnemy () {
