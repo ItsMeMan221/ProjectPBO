@@ -20,7 +20,7 @@ public class towerImitate extends Actor
             delayShoot = 0;
         }
         else {
-            if (delayShoot >= 100) {
+            if (delayShoot >= 150) {
                 shoot();
                 delayShoot = 0;
             }
