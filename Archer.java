@@ -1,18 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.lang.Class;
+
 /**
- * Write a description of class towerImitate here.
+ * Write a description of class Archer here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class towerImitate extends Actor
+public class Archer extends Tower
 {
     /**
-     * Act - do whatever the towerImitate wants to do. This method is called whenever
+     * Act - do whatever the Archer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int delayShoot = 0; 
+    GreenfootSound myMusic = new GreenfootSound("Archer.wav");
+    public Archer() {
+        GreenfootImage myImage = getImage(); 
+        int myWidth = (int)myImage.getWidth()/4; 
+        int myHeight = (int)myImage.getHeight()/4;
+        myImage.scale(myWidth, myHeight);
+    }
     public void act()
     {
         delayShoot += 1;
@@ -25,11 +32,11 @@ public class towerImitate extends Actor
                 delayShoot = 0;
             }
         }
-        
     }
-    
     public void shoot() {
-        towerBullet bullet = new towerBullet();
+        Arrow bullet = new Arrow();
         getWorld().addObject(bullet, getX(),getY());
+        myMusic.play();
+        
     }
 }

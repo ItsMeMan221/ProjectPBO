@@ -19,8 +19,8 @@ public class enemyImitate extends Actor
         destroy();
     } 
     public void destroy() {
-        if (isTouching(towerBullet.class)) {
-            removeTouching(towerBullet.class);
+        if (isTouching(Projectile.class)) {
+            removeTouching(Projectile.class);
             damage += 1;
             if (damage >= 2) {
                 getWorld().removeObject(this);

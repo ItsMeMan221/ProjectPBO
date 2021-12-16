@@ -37,8 +37,6 @@ public class MyWorld extends World
     {
 
         enemyImitate enemyImitate = new enemyImitate();
-        towerImitate towerImitate = new towerImitate();
-        addObject(towerImitate,38,313);
         enemyImitate.setLocation(548,312);
         addObject(lives,46,19);
         lives.setPrefix("Lives : ");
@@ -50,6 +48,17 @@ public class MyWorld extends World
         myBg.scale(getWidth(),getHeight()); 
         setBackground(myBg);
         score.setLocation(850,19);
+        Platform platform = new Platform();
+        addObject(platform,173,300);
+        platform.setLocation(90,303);
+        Archer archer = new Archer();
+        addObject(archer,86,269);
+        archer.setLocation(90,298);
+        Platform platform2 = new Platform();
+        addObject(platform2,137,192);
+        platform2.setLocation(90,203);
+        Archer archer2 = new Archer();
+        addObject(archer2,90,200);
     }
 
     public void act() { 
