@@ -20,6 +20,7 @@ public class MyWorld extends World
     int counter = 60*(timerSpawn + limitSpawn*spawnRate);
     public static Counter lives = new Counter();
     public static Score score = new Score();
+    int counterWave = 0; 
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -35,37 +36,40 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-
-        enemyImitate enemyImitate = new enemyImitate();
-        enemyImitate.setLocation(548,312);
+        //Lives Counter
         addObject(lives,46,19);
         lives.setPrefix("Lives : ");
         lives.setValue(20);
-        addObject(score,549,19);
+        
+        //Score Counter
+        addObject(score,850,19);
         score.setPrefix("Score : ");
         score.setValue(0);
+        
+        //Background in-game
         GreenfootImage myBg = new GreenfootImage("background.png"); 
         myBg.scale(getWidth(),getHeight()); 
         setBackground(myBg);
-        score.setLocation(850,19);
+        
+        //Platform
         Platform platform = new Platform();
-        addObject(platform,173,300);
-        platform.setLocation(90,303);
-        Archer archer = new Archer();
-        addObject(archer,86,269);
-        archer.setLocation(90,298);
+        addObject(platform,90,355);
         Platform platform2 = new Platform();
-        addObject(platform2,137,192);
-        platform2.setLocation(90,203);
+        addObject(platform2,90,215);
+        
+        //Archer
+        Archer archer = new Archer();
+        addObject(archer,90,351);
         Archer archer2 = new Archer();
-        addObject(archer2,90,200);
+        addObject(archer2,90,211);
     }
 
     public void act() { 
-        rand = (int)(Math.random()*3)+1;
+        rand = (int)(Math.random()*2)+1;
         if (counter != 60*timerSpawn) {
             if (counter--==0) {
                 newWave();
+                counterWave++;
                 limitSpawn += 10;
             }
             else if (counter >= 60*timerSpawn && (counter-60*timerSpawn)%(60*spawnRate) == 0) {
@@ -73,7 +77,7 @@ public class MyWorld extends World
                 
             }
         }
-        else if (getObjects(enemyImitate.class).isEmpty()) {
+        else if (getObjects(Enemy.class).isEmpty()) {
             counter--;
         }
         if (lives.getValue() <= 0) {
@@ -82,17 +86,15 @@ public class MyWorld extends World
     }
     
     public void spawningEnemy () {
-        enemyImitate enemy = new enemyImitate();
-        if (rand == 1) {
-            addObject(enemy,900,311);
+        if (counterWave >= 1) {
+            Skeleton enemy = new Skeleton();
+            if (rand == 1) {
+                addObject(enemy,900,351);
+            }
+            else if (rand == 2) {
+                addObject(enemy,900,211);
+            }
         }
-        else if (rand == 2) {
-            addObject(enemy,900,211);
-        }
-         else if (rand == 3) {
-            addObject(enemy,900,111);
-        }
-        
     }
     public void newWave() {
         counter = 60*(timerSpawn + limitSpawn*spawnRate);

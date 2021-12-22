@@ -16,6 +16,7 @@ public class Skeleton extends Enemy
     private GreenfootImage skelIdle = new GreenfootImage("SkeletonIdle.png");
     private int frame = 1; 
     private int animation = 1; 
+    int damage = 0; 
     public Skeleton() {
         GreenfootImage myImage = getImage(); 
         int myWidth = (int)myImage.getWidth()/4; 
@@ -34,6 +35,7 @@ public class Skeleton extends Enemy
         if (animation % 45 == 0) {
           animate();  
         }
+        destroy();
     }
     public void animate() {
         if (frame==1) {
@@ -45,5 +47,20 @@ public class Skeleton extends Enemy
             return;
         }
         frame++;
+    }
+    public void destroy() {
+        if (isTouching(Projectile.class)) {
+            removeTouching(Projectile.class);
+            damage += 1;
+            if (damage >= 2) {
+                getWorld().removeObject(this);
+                MyWorld.score.add(10);
+                
+            }
+        }
+        else if (this.getX() <= 2) {
+            MyWorld.lives.add(-1);
+            getWorld().removeObject(this);
+        }
     }
 }

@@ -14,8 +14,6 @@ public class Archer extends Tower
      */
     int delayShoot = 0; 
     GreenfootSound myMusic = new GreenfootSound("Archer.wav");
-    enemyImitate enemy = new enemyImitate();
-    
     public Archer() {
         GreenfootImage myImage = getImage(); 
         int myWidth = (int)myImage.getWidth()/4; 
@@ -25,10 +23,10 @@ public class Archer extends Tower
     public void act()
     {
         delayShoot += 1;
-        if (getWorld().getObjects(enemyImitate.class).isEmpty()) {
+        if (getWorld().getObjects(Enemy.class).isEmpty()) {
             delayShoot = 0;
         }
-        else {
+        else if (!getWorld().getObjects(Enemy.class).isEmpty()) {
             if (delayShoot >= 150) {
                 shoot();
                 delayShoot = 0;
@@ -37,9 +35,8 @@ public class Archer extends Tower
     }
     public void shoot() {
         Arrow bullet = new Arrow();
-        if (!getWorld().getObjects(enemyImitate.class).isEmpty()) {
-            getWorld().addObject(bullet, getX(),getY());
-            myMusic.play();
-        }        
+        getWorld().addObject(bullet, getX(),getY());
+        myMusic.play();
+  
     }
 }
