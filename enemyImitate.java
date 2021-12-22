@@ -25,7 +25,6 @@ public class enemyImitate extends Actor
             if (damage >= 2) {
                 getWorld().removeObject(this);
                 MyWorld.score.add(10);
-                damage = 0; 
                 
             }
         }
