@@ -13,7 +13,7 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    int timerSpawn = 15; 
+    int timerSpawn = 5; 
     int limitSpawn;
     int rand = (int)(Math.random()*3)+1;
     int spawnRate = 2;
@@ -21,13 +21,13 @@ public class MyWorld extends World
     public static Counter lives = new Counter();
     public static Score score = new Score();
     int counterWave = 0; 
+    GreenfootSound myMusic = new GreenfootSound("InGameSoundOPT2.wav");
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 500, 1); 
         prepare();
         limitSpawn =5;   
-        
     }
     
     /**
@@ -43,8 +43,8 @@ public class MyWorld extends World
         
         //Score Counter
         addObject(score,850,19);
-        score.setPrefix("Score : ");
-        score.setValue(0);
+        score.setPrefix("Wave : ");
+        score.setValue(counterWave);
         
         //Background in-game
         GreenfootImage myBg = new GreenfootImage("background.png"); 
@@ -65,12 +65,14 @@ public class MyWorld extends World
     }
 
     public void act() { 
-        rand = (int)(Math.random()*2)+1;
+        rand = (int)(Math.random()*10)+1;
+        myMusic.play();
         if (counter != 60*timerSpawn) {
             if (counter--==0) {
                 newWave();
                 counterWave++;
-                limitSpawn += 10;
+                score.setValue(counterWave);
+                limitSpawn += 5;
             }
             else if (counter >= 60*timerSpawn && (counter-60*timerSpawn)%(60*spawnRate) == 0) {
                 spawningEnemy();
@@ -79,21 +81,26 @@ public class MyWorld extends World
         }
         else if (getObjects(Enemy.class).isEmpty()) {
             counter--;
+            
         }
         if (lives.getValue() <= 0) {
             Greenfoot.setWorld(new GameOver());
+            myMusic.stop();
         }
     }
     
     public void spawningEnemy () {
+        Skeleton skel = new Skeleton();
         if (counterWave >= 1) {
-            Skeleton enemy = new Skeleton();
-            if (rand == 1) {
-                addObject(enemy,900,351);
+            if (rand >= 0 && rand <= 5) {
+                addObject(skel,900,351);
             }
-            else if (rand == 2) {
-                addObject(enemy,900,211);
+            else if (rand <= 10 && rand>= 6) {
+                addObject(skel,900,211);
             }
+        }
+        else if (counterWave >= 3) {
+            
         }
     }
     public void newWave() {

@@ -54,7 +54,6 @@ public class Skeleton extends Enemy
             damage += 1;
             if (damage >= 2) {
                 getWorld().removeObject(this);
-                MyWorld.score.add(10);
                 
             }
         }
