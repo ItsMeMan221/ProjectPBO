@@ -14,11 +14,9 @@ public class Arrow extends Projectile
      */
     public Arrow() {
         GreenfootImage myImage = getImage(); 
-        int myWidth = (int)myImage.getWidth()/7; 
-        int myHeight = (int)myImage.getHeight()/7;
-        myImage.scale(myWidth, myHeight);
+        myImage.scale(60,60);
         turn(180);
-        
+        setImage(myImage);
     }
     public void act()
     {

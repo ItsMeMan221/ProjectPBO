@@ -13,20 +13,17 @@ public class Skeleton extends Enemy
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private GreenfootImage skelWalk = new GreenfootImage("SkeletonWalk.png");
-    private GreenfootImage skelIdle = new GreenfootImage("SkeletonIdle.png");
+    GreenfootImage skelIdle = getImage();
     private int frame = 1; 
     private int animation = 1; 
     int damage = 0; 
     public Skeleton() {
-        GreenfootImage myImage = getImage(); 
-        int myWidth = (int)myImage.getWidth()/4; 
-        int myHeight = (int)myImage.getHeight()/4;
-        myImage.scale(myWidth, myHeight);
-        skelWalk.scale(myWidth, myHeight);
-        skelIdle.scale(myWidth, myHeight);
+        skelIdle.scale(60,60);
+        skelWalk.scale(60,60);
         getImage().mirrorHorizontally();
         skelWalk.mirrorHorizontally();
-        skelIdle.mirrorHorizontally();
+        setImage(skelIdle);
+        setImage(skelWalk);
     }
     public void act()
     {

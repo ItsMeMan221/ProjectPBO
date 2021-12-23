@@ -40,23 +40,23 @@ public class MyWorld extends World
         addObject(lives,46,19);
         lives.setPrefix("Lives : ");
         lives.setValue(20);
-        
+
         //Score Counter
         addObject(score,850,19);
         score.setPrefix("Wave : ");
         score.setValue(counterWave);
-        
+
         //Background in-game
         GreenfootImage myBg = new GreenfootImage("background.png"); 
         myBg.scale(getWidth(),getHeight()); 
         setBackground(myBg);
-        
+
         //Platform
         Platform platform = new Platform();
         addObject(platform,90,355);
         Platform platform2 = new Platform();
         addObject(platform2,90,215);
-        
+
         //Archer
         Archer archer = new Archer();
         addObject(archer,90,351);
