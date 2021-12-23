@@ -14,13 +14,14 @@ public class Arrow extends Projectile
      */
     public Arrow() {
         GreenfootImage myImage = getImage(); 
-        myImage.scale(60,60);
+        myImage.scale(60,60); 
         turn(180);
         setImage(myImage);
     }
     public void act()
     {
         setLocation(getX() + 2,getY()); 
+        damage = 2;
         erase();
     }
     public void erase() {

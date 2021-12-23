@@ -62,6 +62,16 @@ public class MyWorld extends World
         addObject(archer,90,351);
         Archer archer2 = new Archer();
         addObject(archer2,90,211);
+        Portal portal = new Portal();
+        addObject(portal,24,333);
+        archer.setLocation(19,347);
+        Portal portal2 = new Portal();
+        addObject(portal2,17,198);
+        portal2.setLocation(14,218);
+        archer.setLocation(26,431);
+        archer.setLocation(88,344);
+        portal.setLocation(16,360);
+        portal.setLocation(17,355);
     }
 
     public void act() { 

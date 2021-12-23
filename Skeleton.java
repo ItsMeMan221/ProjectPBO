@@ -16,7 +16,6 @@ public class Skeleton extends Enemy
     GreenfootImage skelIdle = getImage();
     private int frame = 1; 
     private int animation = 1; 
-    int damage = 0; 
     public Skeleton() {
         skelIdle.scale(60,60);
         skelWalk.scale(60,60);
@@ -32,7 +31,8 @@ public class Skeleton extends Enemy
         if (animation % 45 == 0) {
           animate();  
         }
-        destroy();
+        health = 2;
+        checkHitnPortal();
     }
     public void animate() {
         if (frame==1) {
@@ -44,19 +44,5 @@ public class Skeleton extends Enemy
             return;
         }
         frame++;
-    }
-    public void destroy() {
-        if (isTouching(Projectile.class)) {
-            removeTouching(Projectile.class);
-            damage += 1;
-            if (damage >= 2) {
-                getWorld().removeObject(this);
-                
-            }
-        }
-        else if (this.getX() <= 2) {
-            MyWorld.lives.add(-1);
-            getWorld().removeObject(this);
-        }
     }
 }
