@@ -23,6 +23,7 @@ public class Skeleton extends Enemy
         skelWalk.mirrorHorizontally();
         setImage(skelIdle);
         setImage(skelWalk);
+        setHealth(4);
     }
     public void act()
     {
@@ -31,8 +32,8 @@ public class Skeleton extends Enemy
         if (animation % 45 == 0) {
           animate();  
         }
-        health = 2;
-        checkHitnPortal();
+        checkPortal();
+        checkHit();
     }
     public void animate() {
         if (frame==1) {

@@ -12,24 +12,36 @@ public class Enemy extends Actor
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public static Projectile dmg = new Projectile();
-    public int health = 2;
-    public void act()
-    {
-         checkHitnPortal();
+    public int health;
+    public void setHealth(int newHealth) {
+        this.health = newHealth;
     }
-    public void checkHitnPortal() {
-        if (isTouching(Projectile.class)) {
-            removeTouching(Projectile.class);
-            health = health - dmg.damage;
-            if (health <= 0) {
-                getWorld().removeObject(this);
-                
+    public int getHealth() { 
+        return this.health;
+    }
+    public void act() {
+        checkPortal();
+    }
+    public void checkHit() {
+        if (getWorld() != null) {
+            if (isTouching(Projectile.class)) {
+                Projectile dmg  = (Projectile) getIntersectingObjects(Projectile.class).get(0);
+                int damage = dmg.getDamage();
+                health = health - damage;
+                removeTouching(Projectile.class);
+                if (health <= 0) {
+                    getWorld().removeObject(this);
+                    
+                }
             }
         }
-        else if (isTouching(Portal.class) && this.getX() <=2) {
+    }
+    public void checkPortal() {
+        if (getWorld() != null) {
+        if (isTouching(Portal.class) && this.getX() <=2) {
             getWorld().removeObject(this);
             MyWorld.lives.add(-1);
         }
+    }
     }
 }
