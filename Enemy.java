@@ -12,16 +12,19 @@ public class Enemy extends Actor
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    //Global Variable enemy health
     public int health;
+    
+    //Method for subclasses enemy to set their health
     public void setHealth(int newHealth) {
         this.health = newHealth;
     }
+    //Method for return the health
     public int getHealth() { 
         return this.health;
     }
-    public void act() {
-        checkPortal();
-    }
+    
+    //Method to check if the projectile is hitting this classes 
     public void checkHit() {
         if (getWorld() != null) {
             if (isTouching(Projectile.class)) {
@@ -36,6 +39,8 @@ public class Enemy extends Actor
             }
         }
     }
+    
+    //Method to check if Enemy is touching the portal class and remove this class
     public void checkPortal() {
         if (getWorld() != null) {
         if (isTouching(Portal.class) && this.getX() <=2) {

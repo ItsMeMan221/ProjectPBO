@@ -15,7 +15,8 @@ public class MyWorld extends World
      */
     int timerSpawn = 5; 
     int limitSpawn;
-    int rand = (int)(Math.random()*3)+1;
+    int rand;
+    int randSpawn;
     int spawnRate = 2;
     int counter = 60*(timerSpawn + limitSpawn*spawnRate);
     public static Counter lives = new Counter();
@@ -56,26 +57,36 @@ public class MyWorld extends World
         addObject(platform,90,355);
         Platform platform2 = new Platform();
         addObject(platform2,90,215);
+        Platform platform3 = new Platform();
+        addObject(platform3,300,215);
+        Platform platform4 = new Platform();
+        addObject(platform4,300,355);
 
         //Archer
         Archer archer = new Archer();
         addObject(archer,90,351);
         Archer archer2 = new Archer();
         addObject(archer2,90,211);
+
+        //Mage Tower 
+        Mage mage = new Mage();
+        addObject(mage,300,325);
+        Mage mage2 = new Mage();
+        addObject(mage2,300,186);
+
+        //Portal
         Portal portal = new Portal();
         addObject(portal,24,333);
-        archer.setLocation(19,347);
         Portal portal2 = new Portal();
         addObject(portal2,17,198);
         portal2.setLocation(14,218);
-        archer.setLocation(26,431);
-        archer.setLocation(88,344);
         portal.setLocation(16,360);
         portal.setLocation(17,355);
     }
 
     public void act() { 
         rand = (int)(Math.random()*10)+1;
+        randSpawn = (int)(Math.random()*10)+1;
         myMusic.play();
         if (counter != 60*timerSpawn) {
             if (counter--==0) {
@@ -101,7 +112,8 @@ public class MyWorld extends World
     
     public void spawningEnemy () {
         Skeleton skel = new Skeleton();
-        if (counterWave >= 1) {
+        Goblin goblin = new Goblin(); 
+        if (counterWave >= 1 && counterWave < 3) {
             if (rand >= 0 && rand <= 5) {
                 addObject(skel,900,351);
             }
@@ -110,7 +122,22 @@ public class MyWorld extends World
             }
         }
         else if (counterWave >= 3) {
-            
+           if (rand >= 0 && rand <= 5) {
+                if (rand >= 0 && rand <= 2) {
+                    addObject(goblin,900,351);
+                }
+                else if(rand>=3 && rand <=5) {
+                    addObject(goblin,900,211);
+                }
+            }
+            else if (rand <= 10 && rand>= 6) {
+                if (rand >= 0 && rand <= 2) {
+                    addObject(skel,900,351);
+                }
+                else if(rand>=3 && rand <=5) {
+                    addObject(skel,900,211);
+                }
+            } 
         }
     }
     public void newWave() {
