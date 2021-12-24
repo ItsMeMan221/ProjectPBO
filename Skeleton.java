@@ -17,8 +17,8 @@ public class Skeleton extends Enemy
     private int frame = 1; 
     private int animation = 1; 
     public Skeleton() {
-        skelIdle.scale(60,60);
-        skelWalk.scale(60,60);
+        skelIdle.scale(40,40);
+        skelWalk.scale(40,40);
         getImage().mirrorHorizontally();
         skelWalk.mirrorHorizontally();
         setImage(skelIdle);
