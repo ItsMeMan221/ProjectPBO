@@ -22,7 +22,9 @@ public class MyWorld extends World
     public static Counter lives = new Counter();
     public static Score score = new Score();
     int counterWave = 0; 
+    public int gold;
     GreenfootSound myMusic = new GreenfootSound("InGameSoundOPT2.wav");
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
