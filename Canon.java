@@ -1,23 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Archer here.
+ * Write a description of class Canon here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Archer extends Tower
+public class Canon extends Tower
 {
     /**
-     * Act - do whatever the Archer wants to do. This method is called whenever
+     * Act - do whatever the Canon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    GreenfootSound myMusic = new GreenfootSound("Archer.wav");
-    int delayShoot = 0; 
-    public Archer() {
+ int delayShoot = 0; 
+    GreenfootSound myMusic = new GreenfootSound("Cannon.wav");
+    public Canon() {
         GreenfootImage myImage = getImage(); 
-        int myWidth = (int)myImage.getWidth()/4; 
-        int myHeight = (int)myImage.getHeight()/4;
+        int myWidth = (int)myImage.getWidth()/2; 
+        int myHeight = (int)myImage.getHeight()/2;
         myImage.scale(myWidth, myHeight);
     }
     public void act()
@@ -26,15 +26,15 @@ public class Archer extends Tower
         if (getWorld().getObjects(Enemy.class).isEmpty()) {
             delayShoot = 0;
         }
-        else if (!getWorld().getObjects(Enemy.class).isEmpty() ) {
-            if (delayShoot >= 100 ) {
+        else if (!getWorld().getObjects(Enemy.class).isEmpty()) {
+            if (delayShoot >= 200) {
                 shoot();
                 delayShoot = 0;
             }
         }
     }
     public void shoot() {
-        Arrow bullet = new Arrow();
+        CBullet bullet = new CBullet();
         getWorld().addObject(bullet, getX(),getY());
         myMusic.play();
   

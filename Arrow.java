@@ -17,11 +17,11 @@ public class Arrow extends Projectile
         myImage.scale(60,60); 
         turn(180);
         setImage(myImage);
-        setDamage(2);
+        setDamage(1);
     }
     public void act()
     {
-        setLocation(getX() + 2,getY()); 
+        setLocation(getX() + 3,getY()); 
         erase();
     }
     public void erase() {

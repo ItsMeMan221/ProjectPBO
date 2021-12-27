@@ -1,29 +1,29 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Skeleton here.
+ * Write a description of class Demon here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Skeleton extends Enemy
+public class Demon extends Enemy
 {
     /**
-     * Act - do whatever the Skeleton wants to do. This method is called whenever
+     * Act - do whatever the Demon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private GreenfootImage skelWalk = new GreenfootImage("SkeletonWalk.png");
-    GreenfootImage skelIdle = getImage();
+    private GreenfootImage demonWalk = new GreenfootImage("boss-moving.png");
+    GreenfootImage demonIdle = getImage();
     private int frame = 1; 
-    private int animation = 1; 
-    public Skeleton() {
-        skelIdle.scale(40,40);
-        skelWalk.scale(40,40);
+    private int animation = 1;
+    public Demon() {
+        demonIdle.scale(80,80);
+        demonWalk.scale(80,80);
         getImage().mirrorHorizontally();
-        skelWalk.mirrorHorizontally();
-        setImage(skelIdle);
-        setImage(skelWalk);
-        setHealth(3);
+        demonWalk.mirrorHorizontally();
+        setImage(demonIdle);
+        setImage(demonWalk);
+        setHealth(12);
     }
     public void act()
     {
@@ -35,12 +35,12 @@ public class Skeleton extends Enemy
         checkPortal();
         checkHit();
     }
-    public void animate() {
+        public void animate() {
         if (frame==1) {
-            setImage(skelIdle);
+            setImage(demonIdle);
         }
         else if (frame==2) {
-            setImage(skelWalk); 
+            setImage(demonWalk);  
             frame = 1; 
             return;
         }

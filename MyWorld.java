@@ -22,7 +22,6 @@ public class MyWorld extends World
     public static Counter lives = new Counter();
     public static Score score = new Score();
     int counterWave = 0; 
-    public int gold;
     GreenfootSound myMusic = new GreenfootSound("InGameSoundOPT2.wav");
     
     public MyWorld()
@@ -63,6 +62,10 @@ public class MyWorld extends World
         addObject(platform3,300,215);
         Platform platform4 = new Platform();
         addObject(platform4,300,355);
+        Platform platform5 = new Platform();
+        addObject(platform5,550,355);
+        Platform platform6 = new Platform();
+        addObject(platform6,550,215);
 
         //Archer
         Archer archer = new Archer();
@@ -76,6 +79,10 @@ public class MyWorld extends World
         Mage mage2 = new Mage();
         addObject(mage2,300,186);
 
+        //Canon 
+        Canon canon = new Canon();
+        addObject(canon,570,346);
+
         //Portal
         Portal portal = new Portal();
         addObject(portal,24,333);
@@ -84,6 +91,8 @@ public class MyWorld extends World
         portal2.setLocation(14,218);
         portal.setLocation(16,360);
         portal.setLocation(17,355);
+        platform5.setLocation(557,357);
+        platform5.setLocation(554,361);
     }
 
     public void act() { 

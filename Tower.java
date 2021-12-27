@@ -11,9 +11,12 @@ public class Tower extends Actor
     /**
      * Act - do whatever the Tower wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
+     */ 
+    int movePix; 
+    public void setMove(int newMove) {
+        this.movePix = newMove;
+    }
+     public int getMove() {
+        return movePix;
     }
 }

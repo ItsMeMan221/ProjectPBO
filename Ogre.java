@@ -1,36 +1,36 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Goblin here.
+ * Write a description of class Ogre here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Goblin extends Enemy
+public class Ogre extends Enemy
 {
     /**
-     * Act - do whatever the Goblin wants to do. This method is called whenever
+     * Act - do whatever the Ogre wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    //Global Variable
-    private GreenfootImage goblinWalk = new GreenfootImage("goblinwalking.png");
-    GreenfootImage goblinIdle = getImage();
+        //Global Variable
+    private GreenfootImage ogreWalk = new GreenfootImage("ogrewalking.png");
+    GreenfootImage ogreIdle = getImage();
     private int frame = 1; 
     private int animation = 1; 
     
     //Constructor scale and set health
-    public Goblin() {
-        goblinIdle.scale(60,60);
-        goblinWalk.scale(60,60);
+    public Ogre() {
+        ogreIdle.scale(60,60);
+        ogreWalk.scale(60,60);
         getImage().mirrorHorizontally();
-        goblinWalk.mirrorHorizontally();
-        setImage(goblinIdle);
-        setImage(goblinWalk);
-        setHealth(6);
+        ogreWalk.mirrorHorizontally();
+        setImage(ogreIdle);
+        setImage(ogreWalk);
+        setHealth(10);
     }
     public void act()
     {
-        setLocation(getX()-2,getY());
+        setLocation(getX()-1,getY());
         animation++;
         if (animation % 45 == 0) {
           animate();  
@@ -42,10 +42,10 @@ public class Goblin extends Enemy
     //Method for animate the image
     public void animate() {
         if (frame==1) {
-            setImage(goblinIdle);
+            setImage(ogreIdle);
         }
         else if (frame==2) {
-            setImage(goblinWalk); 
+            setImage(ogreWalk); 
             frame = 1; 
             return;
         }

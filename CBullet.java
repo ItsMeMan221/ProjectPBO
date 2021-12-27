@@ -1,22 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Fireball here.
+ * Write a description of class CBullet here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Fireball extends Projectile
+public class CBullet extends Projectile
 {
     /**
-     * Act - do whatever the Fireball wants to do. This method is called whenever
+     * Act - do whatever the CBullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Fireball() {
+    public CBullet() {
         GreenfootImage myImage = getImage(); 
         myImage.scale(30,30); 
         setImage(myImage);
-        setDamage(4);
+        setDamage(2);
     }
     public void act()
     {
