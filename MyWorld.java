@@ -98,6 +98,7 @@ public class MyWorld extends World
     public void act() { 
         rand = (int)(Math.random()*10)+1;
         randSpawn = (int)(Math.random()*10)+1;
+        myMusic.setVolume(30);
         myMusic.play();
         if (counter != 60*timerSpawn) {
             if (counter--==0) {
