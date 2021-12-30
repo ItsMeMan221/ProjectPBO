@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameOver extends World
 {
-
     /**
      * Constructor for objects of class GameOver.
      * 
@@ -20,5 +19,15 @@ public class GameOver extends World
         GreenfootImage myBg = new GreenfootImage("game-over.png"); 
         myBg.scale(getWidth(),getHeight()); 
         setBackground(myBg);
+        prepare();
+    }
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        Back back = new Back();
+        addObject(back,304,273);
     }
 }

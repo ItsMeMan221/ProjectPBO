@@ -14,7 +14,7 @@ public class Enemy extends Actor
      */
     //Global Variable enemy health
     public int health;
-    
+    public GreenfootSound myMusic = new GreenfootSound("EnteringPortal.wav");
     //Method for subclasses enemy to set their health
     public void setHealth(int newHealth) {
         this.health = newHealth;
@@ -44,6 +44,7 @@ public class Enemy extends Actor
     public void checkPortal() {
         if (getWorld() != null) {
         if (isTouching(Portal.class) && this.getX() <=2) {
+            myMusic.play();
             getWorld().removeObject(this);
             MyWorld.lives.add(-1);
         }

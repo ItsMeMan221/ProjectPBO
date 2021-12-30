@@ -20,5 +20,11 @@ public class WinMenu extends World
         GreenfootImage myBg = new GreenfootImage("win.png"); 
         myBg.scale(getWidth(),getHeight()); 
         setBackground(myBg);
+        prepare();
+    }
+        private void prepare()
+    {
+        Back back = new Back();
+        addObject(back,304,273);
     }
 }
