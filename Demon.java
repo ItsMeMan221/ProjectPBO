@@ -23,7 +23,7 @@ public class Demon extends Enemy
         demonWalk.mirrorHorizontally();
         setImage(demonIdle);
         setImage(demonWalk);
-        setHealth(12);
+        setHealth(8);
     }
     public void act()
     {

@@ -26,7 +26,7 @@ public class Ogre extends Enemy
         ogreWalk.mirrorHorizontally();
         setImage(ogreIdle);
         setImage(ogreWalk);
-        setHealth(10);
+        setHealth(6);
     }
     public void act()
     {

@@ -26,7 +26,7 @@ public class Goblin extends Enemy
         goblinWalk.mirrorHorizontally();
         setImage(goblinIdle);
         setImage(goblinWalk);
-        setHealth(6);
+        setHealth(4);
     }
     public void act()
     {

@@ -23,7 +23,7 @@ public class Skeleton extends Enemy
         skelWalk.mirrorHorizontally();
         setImage(skelIdle);
         setImage(skelWalk);
-        setHealth(3);
+        setHealth(2);
     }
     public void act()
     {

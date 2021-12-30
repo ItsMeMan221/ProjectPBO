@@ -19,8 +19,4 @@ public class Platform extends Actor
         int myHeight = (int)myImage.getHeight()/7;
         myImage.scale(myWidth, myHeight);
     }
-    public void act()
-    {
-        // Add your action code here.
     }
-}
