@@ -20,6 +20,7 @@ public class MyWorld extends World
     int spawnRate = 2;
     int counter = 60*(timerSpawn + limitSpawn*spawnRate);
     public static Counter lives = new Counter();
+    public static Gold golds = new Gold();
     public static Score score = new Score();
     int counterWave = 0; 
     GreenfootSound myMusic = new GreenfootSound("InGameSoundOPT2.wav");
@@ -52,6 +53,11 @@ public class MyWorld extends World
         addObject(score,850,19);
         score.setPrefix("Wave : ");
         score.setValue(counterWave);
+        
+        //Gold Counter
+        addObject(golds,400,19);
+        golds.setPrefix("Gold : ");
+        golds.setValue(30);
 
         //Background in-game
         GreenfootImage myBg = new GreenfootImage("background.png"); 

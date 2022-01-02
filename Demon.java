@@ -24,6 +24,7 @@ public class Demon extends Enemy
         setImage(demonIdle);
         setImage(demonWalk);
         setHealth(8);
+        setGold(10);
     }
     public void act()
     {

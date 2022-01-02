@@ -27,6 +27,7 @@ public class Ogre extends Enemy
         setImage(ogreIdle);
         setImage(ogreWalk);
         setHealth(6);
+        setGold(8);
     }
     public void act()
     {

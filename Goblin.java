@@ -27,6 +27,7 @@ public class Goblin extends Enemy
         setImage(goblinIdle);
         setImage(goblinWalk);
         setHealth(4);
+        setGold(4);
     }
     public void act()
     {

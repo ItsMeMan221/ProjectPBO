@@ -14,14 +14,21 @@ public class Enemy extends Actor
      */
     //Global Variable enemy health
     public int health;
+    public int gold;
     public GreenfootSound myMusic = new GreenfootSound("EnteringPortal.wav");
     //Method for subclasses enemy to set their health
     public void setHealth(int newHealth) {
         this.health = newHealth;
     }
+     public void setGold(int newGold) {
+        this.gold = newGold;
+    }
     //Method for return the health
     public int getHealth() { 
         return this.health;
+    }
+    public int getGold() { 
+        return this.gold;
     }
     
     //Method to check if the projectile is hitting this classes 
@@ -34,7 +41,7 @@ public class Enemy extends Actor
                 removeTouching(Projectile.class);
                 if (health <= 0) {
                     getWorld().removeObject(this);
-                    
+                    MyWorld.golds.add(gold);
                 }
             }
         }

@@ -24,6 +24,7 @@ public class Skeleton extends Enemy
         setImage(skelIdle);
         setImage(skelWalk);
         setHealth(2);
+        setGold(2);
     }
     public void act()
     {
