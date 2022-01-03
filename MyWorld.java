@@ -30,6 +30,7 @@ public class MyWorld extends World
     GreenfootSound demonSpawn = new GreenfootSound("DemonSpawnOpt2.wav");
     GreenfootSound newWaves = new GreenfootSound("Wavestart1.wav");
     GreenfootSound gameOver = new GreenfootSound("GameOver.wav");
+    GreenfootSound win = new GreenfootSound("Winning.wav");
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -140,6 +141,10 @@ public class MyWorld extends World
             Greenfoot.setWorld(new GameOver());
             myMusic.stop();
             gameOver.play();
+        }
+        if (counterWave == 9){
+            Greenfoot.setWorld(new WinMenu());
+            win.play();
         }
     }
     
