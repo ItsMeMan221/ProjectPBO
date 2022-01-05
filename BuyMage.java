@@ -18,6 +18,7 @@ public class BuyMage extends BuyTower
         int myHeight = (int)myImage.getHeight()/3;
         myImage.scale(myWidth, myHeight);
         setSnapY(-20); 
+        setCost(70);
     }
     public Tower getTower() {
         return new Mage();
