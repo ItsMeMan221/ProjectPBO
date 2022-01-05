@@ -56,8 +56,8 @@ public class MyWorld extends World
     {
         //Lives Counter
         addObject(lives,46,19);
-        lives.setPrefix("Lives : ");
-        lives.setValue(20);
+        lives.setPrefix("Lifes : ");
+        lives.setValue(10);
 
         //Score Counter
         addObject(score,850,19);
@@ -111,9 +111,11 @@ public class MyWorld extends World
                 score.setValue(counterWave);
                 if (counterWave >= 1 && counterWave <= 6) {
                     limitSpawn += 2;
+                    lives.add(1);
                 }
                 if (counterWave == 6 ) {
                     limitSpawn = 4;
+                    lives.add(2);
                 }
                 if (counterWave == 7) {
                     limitSpawn = 6;
