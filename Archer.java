@@ -27,7 +27,7 @@ public class Archer extends Tower
             delayShoot = 0;
         }
         else if (!getWorld().getObjects(Enemy.class).isEmpty() ) {
-            if (delayShoot >= 100 ) {
+            if (delayShoot >= 75 ) {
                 shoot();
                 delayShoot = 0;
             }

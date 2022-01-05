@@ -27,7 +27,7 @@ public class Mage extends Tower
             delayShoot = 0;
         }
         else if (!getWorld().getObjects(Enemy.class).isEmpty()) {
-            if (delayShoot >= 350) {
+            if (delayShoot >= 200) {
                 shoot();
                 delayShoot = 0;
             }

@@ -31,6 +31,15 @@ public class MyWorld extends World
     GreenfootSound newWaves = new GreenfootSound("Wavestart1.wav");
     GreenfootSound gameOver = new GreenfootSound("GameOver.wav");
     GreenfootSound win = new GreenfootSound("Winning.wav");
+        private Platform selectedPlatform = null;
+     
+    public Platform getSelectedPlatform() {
+        return selectedPlatform;
+    }
+     
+    public void setSelectedPlatform(final Platform platform) {
+        selectedPlatform = platform;
+    }
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -54,7 +63,7 @@ public class MyWorld extends World
         addObject(score,850,19);
         score.setPrefix("Wave : ");
         score.setValue(counterWave);
-        
+
         //Gold Counter
         addObject(golds,400,19);
         golds.setPrefix("Gold : ");
@@ -79,22 +88,6 @@ public class MyWorld extends World
         Platform platform6 = new Platform();
         addObject(platform6,550,215);
 
-        //Archer
-        Archer archer = new Archer();
-        addObject(archer,90,351);
-        Archer archer2 = new Archer();
-        addObject(archer2,90,211);
-
-        //Mage Tower 
-        Mage mage = new Mage();
-        addObject(mage,300,325);
-        Mage mage2 = new Mage();
-        addObject(mage2,300,186);
-
-        //Canon 
-        Canon canon = new Canon();
-        addObject(canon,570,346);
-
         //Portal
         Portal portal = new Portal();
         addObject(portal,24,333);
@@ -103,8 +96,6 @@ public class MyWorld extends World
         portal2.setLocation(14,218);
         portal.setLocation(16,360);
         portal.setLocation(17,355);
-        platform5.setLocation(557,357);
-        platform5.setLocation(554,361);
     }
 
     public void act() { 
@@ -118,13 +109,13 @@ public class MyWorld extends World
                 newWaves.play();
                 counterWave++;
                 score.setValue(counterWave);
-                if (counterWave >= 1 && counterWave < 7) {
+                if (counterWave >= 1 && counterWave <= 6) {
                     limitSpawn += 2;
                 }
-                if (counterWave == 7) {
+                if (counterWave == 6 ) {
                     limitSpawn = 4;
                 }
-                if (counterWave == 8) {
+                if (counterWave == 7) {
                     limitSpawn = 6;
                 }
             }
@@ -143,6 +134,7 @@ public class MyWorld extends World
             gameOver.play();
         }
         if (counterWave == 9){
+            newWaves.setVolume(0);
             Greenfoot.setWorld(new WinMenu());
             win.play();
         }

@@ -16,7 +16,7 @@ public class CBullet extends Projectile
         GreenfootImage myImage = getImage(); 
         myImage.scale(30,30); 
         setImage(myImage);
-        setDamage(2);
+        setDamage(3);
     }
     public void act()
     {

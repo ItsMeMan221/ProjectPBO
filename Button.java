@@ -15,7 +15,6 @@ public class Button extends Actor
      public GreenfootSound myMusic = new GreenfootSound("ClickButton.wav");
     public void act()
     {
-        if (Greenfoot.mouseClicked(Button.class)) {
-        }
+        
     }
 }

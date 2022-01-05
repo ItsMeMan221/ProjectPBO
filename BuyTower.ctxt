@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=BuyTower
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ BuyTower\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=newCost
+comment1.target=void\ setCost(int)
+comment2.params=newSnapX
+comment2.target=void\ setSnapX(int)
+comment3.params=newSnapY
+comment3.target=void\ setSnapY(int)
+comment4.params=
+comment4.target=void\ act()
+comment5.params=
+comment5.target=Tower\ getTower()
+numComments=6

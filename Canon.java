@@ -12,7 +12,7 @@ public class Canon extends Tower
      * Act - do whatever the Canon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
- int delayShoot = 0; 
+     int delayShoot = 0; 
     GreenfootSound myMusic = new GreenfootSound("Cannon.wav");
     public Canon() {
         GreenfootImage myImage = getImage(); 
@@ -27,7 +27,7 @@ public class Canon extends Tower
             delayShoot = 0;
         }
         else if (!getWorld().getObjects(Enemy.class).isEmpty()) {
-            if (delayShoot >= 200) {
+            if (delayShoot >= 150) {
                 shoot();
                 delayShoot = 0;
             }

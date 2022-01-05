@@ -50,11 +50,11 @@ public class Enemy extends Actor
     //Method to check if Enemy is touching the portal class and remove this class
     public void checkPortal() {
         if (getWorld() != null) {
-        if (isTouching(Portal.class) && this.getX() <=2) {
-            myMusic.play();
-            getWorld().removeObject(this);
-            MyWorld.lives.add(-1);
+            if (isTouching(Portal.class) && this.getX() <=2) {
+                myMusic.play();
+                getWorld().removeObject(this);
+                MyWorld.lives.add(-1);
+            }   
         }
-    }
     }
 }
