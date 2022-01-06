@@ -56,7 +56,7 @@ public class MyWorld extends World
     {
         //Lives Counter
         addObject(lives,46,19);
-        lives.setPrefix("Lifes : ");
+        lives.setPrefix("Lives : ");
         lives.setValue(10);
 
         //Score Counter
@@ -65,7 +65,7 @@ public class MyWorld extends World
         score.setValue(counterWave);
 
         //Gold Counter
-        addObject(golds,400,19);
+        addObject(golds,450,19);
         golds.setPrefix("Gold : ");
         golds.setValue(30);
 

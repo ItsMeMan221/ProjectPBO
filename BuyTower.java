@@ -15,6 +15,7 @@ public abstract class BuyTower extends Actor
     int snapX; 
     int snapY; 
     int cost; 
+    GreenfootSound constTower = new GreenfootSound("ConstructTower.wav");
     public void setCost(int newCost) {
         this.cost = newCost;
     }
@@ -34,6 +35,7 @@ public abstract class BuyTower extends Actor
                 if (MyWorld.golds.getValue() >= cost) { 
                     MyWorld.golds.add(-cost);
                     platformWorld.addObject(getTower(), platform.getX()+snapX, platform.getY()+snapY);
+                    constTower.play();
                     platformWorld.setSelectedPlatform(null);
                 }
             }
