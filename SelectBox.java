@@ -15,11 +15,13 @@ public class SelectBox extends Actor
     BuyArcher arch = new BuyArcher(); 
     BuyCanon can = new BuyCanon(); 
     BuyMage mage = new BuyMage(); 
-    Ext ext = new Ext(); 
+    Label lbl = new Label("Cost: 15", 20); 
+    Label lbl2 = new Label("Cost: 30", 20); 
+    Label lbl3 = new Label("Cost: 65", 20);
     public SelectBox() {
         GreenfootImage myImage = getImage(); 
-        int myWidth = (int)myImage.getWidth()*3; 
-        int myHeight = (int)myImage.getHeight()/2;
+        int myWidth = (int)myImage.getWidth()*2 + 75; 
+        int myHeight = (int)myImage.getHeight()/2 + 20;
         myImage.scale(myWidth, myHeight);
     }
     
@@ -28,16 +30,17 @@ public class SelectBox extends Actor
         
     }
     public void appearContent() {
-        getWorld().addObject(arch, 225, 449);
-        getWorld().addObject(can, 359, 436);
-        getWorld().addObject(mage, 519, 436);
-        getWorld().addObject(ext, 633, 441);
+        getWorld().addObject(arch, 224, 435);
+        getWorld().addObject(can, 359, 419);
+        getWorld().addObject(mage, 500, 424);
+        getWorld().addObject(lbl, 227, 472);
+        getWorld().addObject(lbl2, 353, 472);
+        getWorld().addObject(lbl3, 500, 472);
     }
-    public void destroyAll() {
+    public void destroyAll() { 
         getWorld().removeObject(this); 
         getWorld().removeObject(arch);
         getWorld().removeObject(can);
         getWorld().removeObject(mage);
-        getWorld().removeObject(ext);
     }
 }

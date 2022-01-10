@@ -19,7 +19,7 @@ public class BuyCanon extends BuyTower
         myImage.scale(myWidth, myHeight);
         setSnapX(14);
         setSnapY(-12);
-        setCost(35);
+        setCost(30);
     }
      public Tower getTower() {
         return new Canon();

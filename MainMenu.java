@@ -36,8 +36,12 @@ public class MainMenu extends World
         start.setLocation(438,295);
         start.setLocation(507,311);
         start.setLocation(449,289);
-        
+
+        help help = new help();
+        addObject(help,48,43);
+        help.setLocation(48,43);
     }
+
     public void act() {
         if(Greenfoot.mouseClicked(start)) {
             myMusic.stop();

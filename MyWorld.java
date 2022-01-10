@@ -31,7 +31,7 @@ public class MyWorld extends World
     GreenfootSound newWaves = new GreenfootSound("Wavestart1.wav");
     GreenfootSound gameOver = new GreenfootSound("GameOver.wav");
     GreenfootSound win = new GreenfootSound("Winning.wav");
-        private Platform selectedPlatform = null;
+    private Platform selectedPlatform = null;
      
     public Platform getSelectedPlatform() {
         return selectedPlatform;
@@ -109,9 +109,12 @@ public class MyWorld extends World
                 newWaves.play();
                 counterWave++;
                 score.setValue(counterWave);
+                if (counterWave != 1) {
+                    lives.add(1);
+                    golds.add(randSpawn);
+                }
                 if (counterWave >= 1 && counterWave <= 6) {
                     limitSpawn += 2;
-                    lives.add(1);
                 }
                 if (counterWave == 6 ) {
                     limitSpawn = 4;

@@ -28,19 +28,40 @@ public abstract class BuyTower extends Actor
     
     public void act()
     {
-        final MyWorld platformWorld = (MyWorld)getWorld();
-        if (platformWorld != null) {
-            final Platform platform = platformWorld.getSelectedPlatform();           
-            if (platform != null && Greenfoot.mouseClicked(this)) {
-                if (MyWorld.golds.getValue() >= cost) { 
-                    MyWorld.golds.add(-cost);
-                    platformWorld.addObject(getTower(), platform.getX()+snapX, platform.getY()+snapY);
-                    constTower.play();
-                    platformWorld.setSelectedPlatform(null);
+        if (getWorld() instanceof MyWorld){
+            final MyWorld platformWorld = (MyWorld)getWorld();
+            if (platformWorld != null) {
+                final Platform platform = platformWorld.getSelectedPlatform();
+                if (platform != null && Greenfoot.mouseClicked(this)) {
+                    if (MyWorld.golds.getValue() >= cost) { 
+                        MyWorld.golds.add(-cost);
+                        platformWorld.addObject(getTower(), platform.getX()+snapX, platform.getY()+snapY);
+                        constTower.play();
+                        platformWorld.setSelectedPlatform(null);
+                        delete();
+                    }
                 }
             }
-        } 
-    }
+        }
+        if (getWorld() instanceof Tutorial){
+            final Tutorial platformWorld = (Tutorial)getWorld();
+            if (platformWorld != null) {
+                final Platform platform = platformWorld.getSelectedPlatform();
+                if (platform != null && Greenfoot.mouseClicked(this)) {
+                        platformWorld.addObject(getTower(), platform.getX()+snapX, platform.getY()+snapY);
+                        constTower.play();
+                        platformWorld.setSelectedPlatform(null);
+                        delete();
+                    }
+                }
+            }
+        }
      
     protected abstract Tower getTower();
+    
+    private void delete() {
+        getWorld().removeObjects(getWorld().getObjects(SelectBox.class));
+        getWorld().removeObjects(getWorld().getObjects(Label.class));
+        getWorld().removeObjects(getWorld().getObjects(BuyTower.class));
+    }
 }

@@ -14,11 +14,11 @@ public class BuyMage extends BuyTower
      */
     public BuyMage() {
         GreenfootImage myImage = getImage(); 
-        int myWidth = (int)myImage.getWidth()/3; 
-        int myHeight = (int)myImage.getHeight()/3;
+        int myWidth = (int)myImage.getWidth()/4; 
+        int myHeight = (int)myImage.getHeight()/4;
         myImage.scale(myWidth, myHeight);
         setSnapY(-20); 
-        setCost(70);
+        setCost(65);
     }
     public Tower getTower() {
         return new Mage();

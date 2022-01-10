@@ -30,10 +30,17 @@ public class Platform extends Actor
             platform.setSelectedPlatform(this);
             }
         } 
+        else if(getWorld() instanceof Tutorial) {
+            final Tutorial platform = (Tutorial)getWorld();
+            if (platform != null && Greenfoot.mouseClicked(this)) {
+            appearBox();
+            platform.setSelectedPlatform(this);
+            }
+        } 
     }
     public void appearBox() 
     {
-        getWorld().addObject(box, 426, 436);
+        getWorld().addObject(box, 400, 436);
         box.appearContent();
     }
 }
